@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Books\Commands\" />
     <Folder Include="Common\Mappings\" />
   </ItemGroup>
 

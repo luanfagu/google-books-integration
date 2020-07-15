@@ -2,7 +2,6 @@
 using GoogleBooks.Application.Common.Interfaces;
 using GoogleBooks.Infrastructure.Identity;
 using GoogleBooks.Infrastructure.Persistence;
-using GoogleBooks.Infrastructure.Services;
 
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,10 +24,7 @@ namespace GoogleBooks.Infrastructure
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            if (!environment.IsEnvironment("Test"))
-            { 
-                services.AddTransient<IDateTime, DateTimeService>();
-            }
+
 
             return services;
         }
