@@ -7,8 +7,7 @@ namespace GoogleBooks.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<NonConformity> NonConformities { get; set; }
-        DbSet<Action> Actions { get; set; }
+        DbSet<FavoriteBook> FavoriteBooks { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

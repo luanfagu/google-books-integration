@@ -65,24 +65,16 @@ namespace GoogleBooks.Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NonConformities",
+                name: "FavoriteBooks",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CreatedBy = table.Column<string>(nullable: true),
-                    Created = table.Column<DateTime>(nullable: false),
-                    LastModifiedBy = table.Column<string>(nullable: true),
-                    LastModified = table.Column<DateTime>(nullable: true),
-                    Year = table.Column<int>(nullable: false),
-                    Identity = table.Column<int>(nullable: false),
-                    Revision = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false)
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Thumbnail = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_NonConformities", x => x.Id);
+                    table.PrimaryKey("PK_FavoriteBooks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -208,35 +200,6 @@ namespace GoogleBooks.Api.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Actions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CreatedBy = table.Column<string>(nullable: true),
-                    Created = table.Column<DateTime>(nullable: false),
-                    LastModifiedBy = table.Column<string>(nullable: true),
-                    LastModified = table.Column<DateTime>(nullable: true),
-                    Description = table.Column<string>(nullable: false),
-                    NonConformityId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Actions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Actions_NonConformities_NonConformityId",
-                        column: x => x.NonConformityId,
-                        principalTable: "NonConformities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Actions_NonConformityId",
-                table: "Actions",
-                column: "NonConformityId");
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -299,9 +262,6 @@ namespace GoogleBooks.Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Actions");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -320,10 +280,10 @@ namespace GoogleBooks.Api.Migrations
                 name: "DeviceCodes");
 
             migrationBuilder.DropTable(
-                name: "PersistedGrants");
+                name: "FavoriteBooks");
 
             migrationBuilder.DropTable(
-                name: "NonConformities");
+                name: "PersistedGrants");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

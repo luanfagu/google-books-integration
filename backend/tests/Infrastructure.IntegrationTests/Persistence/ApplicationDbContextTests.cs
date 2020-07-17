@@ -41,7 +41,7 @@ namespace GoogleBooks.Infrastructure.IntegrationTests.Persistence
                     PersistedGrants = new TableConfiguration("PersistedGrants")
                 });
 
-            _sut = new ApplicationDbContext(options, operationalStoreOptions, _dateTimeMock.Object);
+            _sut = new ApplicationDbContext(options, operationalStoreOptions);
 
 
             _sut.SaveChanges();

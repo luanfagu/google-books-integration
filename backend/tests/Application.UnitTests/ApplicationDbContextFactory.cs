@@ -34,8 +34,7 @@ namespace GoogleBooks.Application.UnitTests.Common
                 .Returns("00000000-0000-0000-0000-000000000000");
 
             var context = new ApplicationDbContext(
-                options, operationalStoreOptions,
-                dateTimeMock.Object);
+                options, operationalStoreOptions);
 
             context.Database.EnsureCreated();
 
@@ -46,14 +45,14 @@ namespace GoogleBooks.Application.UnitTests.Common
 
         public static void SeedSampleData(ApplicationDbContext context)
         { 
-            context.NonConformities.AddRange(
-                new NonConformity() {Id = 1, Description = "NonConformity test", Year = DateTime.Now.Year, Identity = 1, Revision = 0}
-                , new NonConformity() {Id = 2, Description = "NonConformity test", Year = DateTime.Now.Year, Identity = 1, Revision = 1 }
-                );
-
-            context.Actions.AddRange(
-                new Action() { Id = 1, Description = "Test action 1", NonConformityId = 1}
-                );
+            // context.NonConformities.AddRange(
+            //     new NonConformity() {Id = 1, Description = "NonConformity test", Year = DateTime.Now.Year, Identity = 1, Revision = 0}
+            //     , new NonConformity() {Id = 2, Description = "NonConformity test", Year = DateTime.Now.Year, Identity = 1, Revision = 1 }
+            //     );
+            //
+            // context.Actions.AddRange(
+            //     new Action() { Id = 1, Description = "Test action 1", NonConformityId = 1}
+            //     );
 
             context.SaveChanges();
         }

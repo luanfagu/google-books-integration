@@ -87,9 +87,6 @@ namespace GoogleBooks.Api
 
             app.UseRouting();
 
-            // app.UseAuthentication();
-            // app.UseIdentityServer();
-            // app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
