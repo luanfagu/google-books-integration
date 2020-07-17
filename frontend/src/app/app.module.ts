@@ -18,6 +18,10 @@ import { SearchComponent } from 'src/app/components/search/search.component';
 import { MyFavoritesComponent } from 'src/app/components/my-favorites/my-favorites.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,9 +29,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     TopBarComponent,
     SearchComponent,
     MyFavoritesComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -38,9 +45,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatCardModule,
     FlexLayoutModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule { }

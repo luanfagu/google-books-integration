@@ -4,7 +4,7 @@
       <img mat-card-image src="{{book.thumbnail}}">
       <mat-card-title>{{book.name}}</mat-card-title>
       <mat-card-actions [align]="'end'">
-        <button mat-icon-button color="warn">
+        <button mat-icon-button color="warn" (click)="removeBook(book.id)">
           <mat-icon>remove_circle</mat-icon>
         </button>
       </mat-card-actions>

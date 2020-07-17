@@ -74,6 +74,8 @@ namespace GoogleBooks.Api
                 app.UseHsts();
             }
 
+            app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             app.UseCustomExceptionHandler();
             app.UseHealthChecks("/health");
             app.UseHttpsRedirection();

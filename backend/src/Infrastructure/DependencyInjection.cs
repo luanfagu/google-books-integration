@@ -24,8 +24,6 @@ namespace GoogleBooks.Infrastructure
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-
-
             return services;
         }
     }
